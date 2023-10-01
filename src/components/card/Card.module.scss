@@ -38,6 +38,7 @@
     height: 20px;
     border-radius: 50%;
     background-color: #89d1f8;
+    transition: 0.5s background-color ease-in-out;
   }
 
   &-title {

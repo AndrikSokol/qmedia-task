@@ -1,28 +1,50 @@
-import React, { FC, useEffect, useState } from "react";
+import React, {
+  FC,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import style from "./Card.module.scss";
 import { cardInfo } from "../../types/card.type";
 import { CARD_INFO } from "../../constants/cardInfo";
 import Button from "../UI/button/Button";
 
 const Card = () => {
-  const [card, setCard] = useState(CARD_INFO);
-  const [answered, setAnswered] = useState({});
+  const card = useMemo(() => CARD_INFO, []);
+  const [answered, setAnswered] = useState<answeredType>({});
   const [currentQuestion, setCurrentQuestion] = useState<number>(1);
   const [currentCard, setCurrentCard] = useState<cardInfo>(CARD_INFO[0]);
+
   useEffect(() => {
     setCurrentCard(CARD_INFO[currentQuestion - 1]);
   }, [currentQuestion]);
 
-  const handleCheckboxChange = (event: any) => {
-    if (event.target.checked) {
-      const answer = event;
-      console.log(answer);
-    }
-  };
+  // const handleCheckboxChange = (event: any) => {
+  //   setAnswered((prev)=>{[{id:currentQuestion,currentCard.answers[currentQuestion].text, ...prev}]})
+  // };
 
-  const handleResultButton = () => {
-    console.log("User's Answers:", answered);
+  type answeredType = {
+    id: number;
+    answerId: number;
+    text: string;
   };
+  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { id } = event.target;
+    setAnswered((prev) => ({
+      ...prev,
+      [currentQuestion]: {
+        id: currentQuestion,
+        answerId: id,
+        text: currentCard.answers[Number(id) - 1].text,
+      },
+    }));
+  };
+  console.log(answered);
+  const handleResultButton = useCallback(() => {
+    console.log("User's Answers:", answered);
+  }, []);
 
   return (
     <section className={style["card"]}>
@@ -52,9 +74,15 @@ const Card = () => {
             </label>
             <input
               className={style["card__inner-input"]}
-              type="checkbox"
+              type="radio"
+              name="radio-group"
               id={answer.id.toString()}
               onChange={(event) => handleCheckboxChange(event)}
+              checked={
+                answer.id == answered.answerId && currentQuestion == answered.id
+                  ? true
+                  : false
+              }
             />
             <p className={style["card__inner-answer"]}>{answer.text}</p>
           </div>

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 import style from "./Button.module.scss";
 type buttonType = {
   children?: React.ReactNode;
@@ -13,6 +13,7 @@ const Button: FC<buttonType> = ({
   onClick,
   ...props
 }) => {
+  console.log("render btn");
   return (
     <button
       {...props}
@@ -38,4 +39,4 @@ const textColors = {
   primary: "#000000",
 };
 
-export default Button;
+export default memo(Button);
