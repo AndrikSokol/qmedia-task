@@ -1,0 +1,14 @@
+.pagination {
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+
+	&__item {
+		font-size: 20px;
+		font-weight: 400;
+		color: #b8b8b8;
+		&--active {
+			color: #00a5ff;
+		}
+	}
+}
