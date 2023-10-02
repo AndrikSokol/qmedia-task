@@ -1,6 +1,6 @@
-import { cardInfo } from "../types/card.type";
+import { ICardInfo } from "../types/card.type";
 
-export const CARD_INFO: cardInfo[] = [
+export const CARD_INFO: ICardInfo[] = [
   {
     id: 1,
     question: "Сколько вам лет?",
