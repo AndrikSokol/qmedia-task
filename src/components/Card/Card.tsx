@@ -54,8 +54,7 @@ const Card = () => {
 					)}
 					{}
 					{currentQuestion == card.length && (
-						<Link
-							to={`/product?age=${answered[1]?.text}&skin=${answered[2]?.text}&inflammation=${answered[3]?.text}`}>
+						<Link to="/product">
 							<Button>Результат</Button>
 						</Link>
 					)}
