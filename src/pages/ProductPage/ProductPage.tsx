@@ -35,7 +35,7 @@ const ProductPage = () => {
 			<Pagination
 				value={activePage}
 				onChange={setActivePage}
-				total={response.length}
+				total={products.length}
 			/>
 		</div>
 	);
