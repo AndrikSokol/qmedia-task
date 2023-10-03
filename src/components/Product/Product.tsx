@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { IProduct } from "../../types/product.type";
+import { IProduct } from "../../types/product.interface";
 import style from "./Product.module.scss";
 
 type ProductType = {
@@ -8,7 +8,7 @@ type ProductType = {
 const Product: FC<ProductType> = ({ product }) => {
 	const [isFavorited, setIsFavorited] = useState<boolean>(false);
 	return (
-		<div className={style["product"]}>
+		<article className={style["product"]}>
 			<div className={style["product-wrapper"]}>
 				<svg
 					onClick={() => setIsFavorited((prev) => !prev)}
@@ -43,7 +43,7 @@ const Product: FC<ProductType> = ({ product }) => {
 					{product.price} руб.
 				</h4>
 			</div>
-		</div>
+		</article>
 	);
 };
 export default Product;

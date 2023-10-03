@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import style from "./Card.module.scss";
-import { ICardInfo } from "../../types/card.type";
+import { ICardInfo } from "../../types/card.interface";
 import { CARD_INFO } from "../../constants/cardInfo";
 import Button from "../UI/Button/Button";
 import Progress from "../Progress/Progress";
-import { IAnswered } from "../../types/answered.type";
+import { IAnswered } from "../../types/answered.interface";
 import RadioInputGroup from "../UI/RadioInputGroup/RadioInputGroup";
 import { Link } from "react-router-dom";
 

@@ -30,14 +30,18 @@ input[type="checkbox"] {
 	cursor: pointer;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 615px) {
 	:root {
 		padding: 25px;
 	}
 	h1 {
+		text-align: center;
 		font-size: 30px;
 	}
 	main header div {
 		padding: 10px 0;
+	}
+	h2 {
+		text-align: justify;
 	}
 }

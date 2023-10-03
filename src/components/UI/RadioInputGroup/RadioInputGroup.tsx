@@ -1,7 +1,7 @@
 import React, { FC, memo } from "react";
 import style from "./RadioInputGroup.module.scss";
-import { ICardInfo } from "../../../types/card.type";
-import { IAnswered } from "../../../types/answered.type";
+import { ICardInfo } from "../../../types/card.interface";
+import { IAnswered } from "../../../types/answered.interface";
 
 type RadioInputGroupType = {
 	currentQuestion: number;

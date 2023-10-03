@@ -1,8 +1,13 @@
 .button {
-  color: white;
-  border-radius: 5px;
-  padding: 10px 15px;
-  font-weight: 700;
-  font-size: 15px;
-  border: none;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 15px;
+	font-weight: 700;
+	font-size: 15px;
+	border: none;
+	transition: 0.2s opacity ease-in-out;
+
+	&:hover {
+		opacity: 0.9;
+	}
 }
